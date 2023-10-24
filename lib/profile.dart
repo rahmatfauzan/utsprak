@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:utsprak/login.dart';
+import 'package:utsprak/userManager.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -22,38 +24,43 @@ class _ProfileState extends State<Profile> {
             ),
             const SizedBox(height: 20),
 
-          Container(
-            padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
-            height: 80,
-            width: 800,
-            decoration: BoxDecoration(
+            Container(
+              padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
+              height: 80,
+              width: 800,
+              decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   BoxShadow(
-                      offset: const Offset(0, 5),
-                      color: Colors.deepPurple.withOpacity(.2),
-                      spreadRadius: 2,
-                      blurRadius: 10
+                    offset: const Offset(0, 5),
+                    color: Colors.deepPurple.withOpacity(.2),
+                    spreadRadius: 2,
+                    blurRadius: 10,
                   )
-                ]
-            ),
-              child: const Column(
+                ],
+              ),
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Name",
-                  style: TextStyle(
+                  Text(
+                    "Name",
+                    style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'OpenSans',
-                      fontSize: 12),
+                      fontSize: 12,
+                    ),
                   ),
                   SizedBox(height: 5),
-                  Text("Ferina Putri Soedjono",
+                  Text(
+                    "Ferina Putri Soedjono",
                     style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'OpenSans',
-                        fontSize: 12),),
+                      color: Colors.black,
+                      fontFamily: 'OpenSans',
+                      fontSize: 12,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -64,33 +71,38 @@ class _ProfileState extends State<Profile> {
               height: 80,
               width: 800,
               decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                        offset: const Offset(0, 5),
-                        color: Colors.deepPurple.withOpacity(.2),
-                        spreadRadius: 2,
-                        blurRadius: 10
-                    )
-                  ]
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    offset: const Offset(0, 5),
+                    color: Colors.deepPurple.withOpacity(.2),
+                    spreadRadius: 2,
+                    blurRadius: 10,
+                  ),
+                ],
               ),
-              child: const Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Phone",
+                  Text(
+                    "Phone",
                     style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'OpenSans',
-                        fontSize: 12),
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'OpenSans',
+                      fontSize: 12,
+                    ),
                   ),
                   SizedBox(height: 5),
-                  Text("081234567890",
+                  Text(
+                    "081234567890",
                     style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'OpenSans',
-                        fontSize: 12),),
+                      color: Colors.black,
+                      fontFamily: 'OpenSans',
+                      fontSize: 12,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -101,37 +113,55 @@ class _ProfileState extends State<Profile> {
               height: 80,
               width: 800,
               decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                        offset: const Offset(0, 5),
-                        color: Colors.deepPurple.withOpacity(.2),
-                        spreadRadius: 2,
-                        blurRadius: 10
-                    )
-                  ]
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    offset: const Offset(0, 5),
+                    color: Colors.deepPurple.withOpacity(.2),
+                    spreadRadius: 2,
+                    blurRadius: 10,
+                  ),
+                ],
               ),
-              child: const Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Email",
+                  Text(
+                    "Email",
                     style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'OpenSans',
-                        fontSize: 12),
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'OpenSans',
+                      fontSize: 12,
+                    ),
                   ),
                   SizedBox(height: 5),
-                  Text("ferina@gmail.com",
+                  Text(
+                    "ferina@gmail.com",
                     style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'OpenSans',
-                        fontSize: 12),),
+                      color: Colors.black,
+                      fontFamily: 'OpenSans',
+                      fontSize: 12,
+                    ),
+                  ),
                 ],
               ),
             ),
             const SizedBox(height: 20),
+
+            ElevatedButton(
+              onPressed: () {
+                UserManager().clearUserId();
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LoginScreen(),
+                  ),
+                );
+              },
+              child: Text('Log Out'),
+            ),
           ],
         ),
       ),

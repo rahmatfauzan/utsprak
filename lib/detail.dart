@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:utsprak/datamovie.dart';
+import 'package:utsprak/detail_jam.dart';
 
 class Detail extends StatelessWidget {
   const Detail({super.key, required this.dataMovie});
@@ -60,29 +61,38 @@ class Detail extends StatelessWidget {
                   ),
               const SizedBox(height: 24),
               ElevatedButton(
-                onPressed: () {
-                  // action to perform when button is pressed
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                        (Set<MaterialState> states) {
-                      if (states.contains(MaterialState.pressed)) {
-                        return const Color(0xFFA1C5EF); //warna pas ditekan
-                      }
-                      return const Color(0xFF233269); //warna default
-                    },
+              onPressed: () {
+                // Action ketika tombol "Buy Now" ditekan
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        TimeSelectionPage(dataMovie: dataMovie),
                   ),
-                  fixedSize: MaterialStateProperty.all(const Size(300, 50)),
+                );
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                  (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return const Color(0xFFA1C5EF); // Warna saat ditekan
+                    }
+                    return const Color(0xFF233269); // Warna default
+                  },
                 ),
-                child: const Text('Buy Now',
-                  style:TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'OpenSans',
-                      fontSize: 12
-                  ),
+                fixedSize: MaterialStateProperty.all(const Size(300, 50)),
+              ),
+              child: const Text(
+                'Buy Now',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'OpenSans',
+                  fontSize: 12,
                 ),
               ),
+            ),
+
             ],
           ),
           )

@@ -11,7 +11,7 @@ class DetailSoon extends StatelessWidget {
       //backgroundColor: Color(0xFF393434),
       appBar: AppBar(
         backgroundColor: const Color(0xFF4F88F7),
-        title: Text(dataSoon.name),
+        title: Text(dataSoon.name), 
       ),
       resizeToAvoidBottomInset: false, // set it to false
       body: SingleChildScrollView(
